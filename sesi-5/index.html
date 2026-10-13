@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suvoire Candles</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar sticky-top navbar-suvoire">
+    <div class="container d-flex flex-wrap gap-3">
+      <a class="navbar-brand logo" href="#">SUVOIRE</a>
+      <input id="cari" type="search" class="form-control kotak-cari" placeholder="Cari lilin favoritmu...">
+      <div class="keranjang">
+        🛒 <span id="jumlah-keranjang" class="badge rounded-pill">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <section class="container mt-4">
+    <div class="banner">
+      <p class="banner-kecil">a journey of the senses</p>
+      <h1>Scented Candles from Bali</h1>
+      <p>Natural soy wax, hand-poured, made to be remembered.</p>
+      <a href="#toko" class="btn btn-light px-4">Belanja Sekarang</a>
+    </div>
+  </section>
+
+  <!-- TOKO -->
+  <section class="container my-5" id="toko">
+    <div class="row">
+
+      <!-- KOLOM KIRI: FILTER -->
+      <div class="col-12 col-lg-3 mb-4">
+        <div class="kotak-filter">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Filter</h5>
+            <button id="reset" class="btn btn-link btn-sm p-0">Reset All</button>
+          </div>
+
+          <p class="label-filter">Kategori</p>
+          <div id="daftar-kategori"></div>
+
+          <p class="label-filter mt-4">Maksimum Harga</p>
+          <input id="harga-maks" type="range" class="form-range" min="100000" max="300000" step="10000" value="300000">
+          <p class="small">Sampai <b id="teks-harga">Rp 300.000</b></p>
+        </div>
+      </div>
+
+      <!-- KOLOM KANAN: PRODUK -->
+      <div class="col-12 col-lg-9">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+          <p id="jumlah-tampil" class="mb-0"></p>
+          <select id="urutan" class="form-select w-auto">
+            <option value="rekomendasi">Rekomendasi</option>
+            <option value="termurah">Harga termurah</option>
+            <option value="termahal">Harga termahal</option>
+            <option value="nama">Nama A–Z</option>
+          </select>
+        </div>
+
+        <div id="daftar-produk" class="row"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-4 footer-suvoire">
+    <p class="mb-0">&copy; 2026 Suvoire · Made by Lina Asda</p>
+  </footer>
+
+  <!-- MODAL DETAIL PRODUK -->
+  <div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detail-nama"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="detail-gambar" class="img-fluid rounded mb-3" alt="">
+          <p id="detail-deskripsi"></p>
+          <p id="detail-harga" class="harga"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-gold" onclick="tambahKeKeranjang()" data-bs-dismiss="modal">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
