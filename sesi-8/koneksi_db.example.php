@@ -3,7 +3,7 @@
 $host     = 'localhost';
 $dbname   = 'suvoire_db';
 $username = 'root';
-$password = 'Dargbal2026!';
+$password = 'PASSWORD_MYSQL_KAMU';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
