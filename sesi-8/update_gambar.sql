@@ -1,0 +1,10 @@
+USE suvoire_db;
+UPDATE products SET gambar = 'https://picsum.photos/seed/frenchrose/400/300' WHERE nama_produk = 'French Rose';
+UPDATE products SET gambar = 'https://picsum.photos/seed/vanilla/400/300'    WHERE nama_produk = 'Vanilla Soft';
+UPDATE products SET gambar = 'https://picsum.photos/seed/osmanthus/400/300'  WHERE nama_produk = 'Osmanthus Tea';
+UPDATE products SET gambar = 'https://picsum.photos/seed/roseoud/400/300'    WHERE nama_produk = 'Rose Oud';
+UPDATE products SET gambar = 'https://picsum.photos/seed/sandalwood/400/300' WHERE nama_produk = 'Sandalwood';
+UPDATE products SET gambar = 'https://picsum.photos/seed/peony/400/300'      WHERE nama_produk = 'Peony Bloom';
+UPDATE products SET gambar = 'https://picsum.photos/seed/caramel/400/300'    WHERE nama_produk = 'Caramel Latte';
+UPDATE products SET gambar = 'https://picsum.photos/seed/seabreeze/400/300'  WHERE nama_produk = 'Sea Breeze';
+SELECT id, nama_produk, gambar FROM products;
