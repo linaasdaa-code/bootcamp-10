@@ -1,18 +1,13 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/products', function () {
-    return '<h1>Daftar Produk</h1><p>Di sini nanti tampil semua produk Suvoire.</p>';
-});
+// Mengelola halaman
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/cart', [PageController::class, 'cart'])->name('cart');
+Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
 
-Route::get('/cart', function () {
-    return '<h1>Keranjang Belanja</h1><p>Di sini nanti tampil produk yang dimasukkan ke keranjang.</p>';
-});
-
-Route::get('/checkout', function () {
-    return '<h1>Checkout</h1><p>Di sini nanti halaman pembayaran.</p>';
-});
+// Mengelola produk
+Route::resource('products', ProductController::class)->only(['index', 'show']);
