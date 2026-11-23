@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Checkout')
-
-@section('content')
+<x-layout title="Checkout">
     <h1>Checkout</h1>
-    <p class="text-muted">Halaman pembayaran akan dibuat setelah fitur keranjang selesai.</p>
-@endsection
+    <p class="text-muted">Halaman pembayaran akan dibuat setelah fitur keranjang tersambung ke database.</p>
+</x-layout>
