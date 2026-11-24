@@ -3,15 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // Tampilkan semua produk dari database
-    public function index()
+    // Tampilkan produk dengan pagination dan filter kategori
+    public function index(Request $request)
     {
-        $products = Product::with('category')->get();
-        return view('products.index', compact('products'));
+        // Semua kategori + jumlah produk di tiap kategori (memakai relasi hasMany)
+        $categories = ProductCategory::withCount('products')->get();
+
+        // Ambil produk beserta kategorinya (memakai relasi belongsTo)
+        $query = Product::with('category')->orderBy('id');
+
+        // Kalau ada ?category=... di URL, tampilkan produk kategori itu saja
+        if ($request->filled('category')) {
+            $query->where('product_category_id', $request->category);
+        }
+
+        // 3 produk per halaman
+        $products = $query->paginate(3)->withQueryString();
+
+        return view('products.index', compact('products', 'categories'));
     }
 
     // Tampilkan detail satu produk
